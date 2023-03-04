@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmallChat - Let's Re-Generate Your World</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+  !function () {
+    try {
+      var d = document.documentElement, c = d.classList; c.remove('light', 'dark');
+      var e = localStorage.getItem('theme');
+      if ('system' === e || (!e && true)) {
+        var t = '(prefers-color-scheme: dark)', m = window.matchMedia(t);
+        if (m.media !== t || m.matches) {
+          d.style.colorScheme = 'dark';
+          c.add('dark')
+        } else {
+          d.style.colorScheme = 'light';
+          c.add('light')
+        }
+      } else if (e) { c.add(e || '') }
+      if (e === 'light' || e === 'dark') d.style.colorScheme = e
+    } catch (e) { }
+  }()
+</script>
+
+<body>
+  <div id="app">
+    <div id="chat_container"> </div>
+    <form>
+      <textarea name="prompt" cols="1" rows="1" placeholder="Ask SmalleWrite... "></textarea>
+      <button type="submit"><img src="assets/send.svg"></button>
+    </form>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
